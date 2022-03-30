@@ -1,0 +1,110 @@
+[
+    {
+        "id": 1,
+        "nombre": "ASUS ROG Delta S",
+        "marca": "Asus",
+        "precio": 10000,
+        "stock": 40,
+        "oferta": false,
+        "img": "auriculares-asus.webp"
+    },
+    {
+        "id": 2,
+        "nombre": "HyperX Cloud II Wireless",
+        "marca": "HyperX",
+        "precio": 5700,
+        "stock": 75,
+        "oferta": true,
+        "img": "auriculares-hyperx.webp"
+    },
+    {
+        "id": 3,
+        "nombre": "Razer Kraken",
+        "marca": "Razer",
+        "precio": 4200,
+        "stock": 210,
+        "oferta": true,
+        "img": "auriculares-razer.webp"
+    },
+    {
+        "id": 4,
+        "nombre": "Razer Basilisk X HyperSpeed",
+        "marca": "Razer",
+        "precio": 3800,
+        "stock": 55,
+        "oferta": false,
+        "img": "mouse-razer.webp"
+    },
+    {
+        "id": 5,
+        "nombre": "Logitech G502 Lightspeed",
+        "marca": "Logitech",
+        "precio": 5500,
+        "stock": 90,
+        "oferta": false,
+        "img": "mouse-logitech.webp"
+    },
+    {
+        "id": 6,
+        "nombre": "HyperX Pulsefire Raid",
+        "marca": "HyperX",
+        "precio": 6100,
+        "stock": 145,
+        "oferta": true,
+        "img": "mouse-hyperx.webp"
+    },
+    {
+        "id": 7,
+        "nombre": "ASUS ROG Strix Scope NX Deluxe",
+        "marca": "Asus",
+        "precio": 8200,
+        "stock": 90,
+        "oferta": true,
+        "img": "teclado-asus.wepb"
+    },
+    {
+        "id": 8,
+        "nombre": "REDRAGON K506 Centaur 7",
+        "marca": "Redragon",
+        "precio": 11000,
+        "stock": 30,
+        "oferta": false,
+        "img": "teclado-redragon.webp"
+    },
+    {
+        "id": 9,
+        "nombre": "HyperX Alloy Elite 2",
+        "marca": "HyperX",
+        "precio": 4000,
+        "stock": 40,
+        "oferta": true,
+        "img": "teclado-hyperx.webp"
+    },
+    {
+        "id": 10,
+        "nombre": "LG 27GP750-B Ultragear FHD - Monitor curvo de 34 pulgadas",
+        "marca": "LG",
+        "precio": 80000,
+        "stock": 35,
+        "oferta": false,
+        "img": "monitor-lg-plano.webp"
+    },
+    {
+        "id": 11,
+        "nombre": "LG 34WN80C-B - Monitor curvo de 34 pulgadas",
+        "marca": "LG",
+        "precio": 42000,
+        "stock": 15,
+        "oferta": true,
+        "img": "monitor-lg-curvo.webp"
+    },
+    {
+        "id": 12,
+        "nombre": "SAMSUNG Odyssey serie G3",
+        "marca": "Samsung",
+        "precio": 35000,
+        "stock": 60,
+        "oferta": true,
+        "img": "monitor-samsung.webp"
+    }
+]
