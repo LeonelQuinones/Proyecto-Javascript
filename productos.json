@@ -55,12 +55,12 @@
     },
     {
         "id": 7,
-        "nombre": "ASUS ROG Strix Scope NX Deluxe",
+        "nombre": "ASUS ROG Strix Scope NX",
         "marca": "Asus",
         "precio": 8200,
         "stock": 90,
         "oferta": true,
-        "img": "teclado-asus.wepb"
+        "img": "teclado-asus.webp"
     },
     {
         "id": 8,
@@ -82,7 +82,7 @@
     },
     {
         "id": 10,
-        "nombre": "LG 27GP750-B Ultragear FHD - Monitor curvo de 34 pulgadas",
+        "nombre": "LG 27GP750-B Ultragear FHD",
         "marca": "LG",
         "precio": 80000,
         "stock": 35,
@@ -91,7 +91,7 @@
     },
     {
         "id": 11,
-        "nombre": "LG 34WN80C-B - Monitor curvo de 34 pulgadas",
+        "nombre": "LG 34WN80C-B",
         "marca": "LG",
         "precio": 42000,
         "stock": 15,

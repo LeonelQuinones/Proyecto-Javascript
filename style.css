@@ -10,6 +10,8 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
+/* Navbar */
+
 .logo {
     width: 130px;
     height: 70px;
@@ -150,3 +152,16 @@ nav a {
 .br-3.animado {
     transform: rotate(45deg) translate(-10px, -8px);
 }
+
+/* Seccion Productos */
+
+.lista-productos {
+    display: grid;
+    gap: 1rem;
+    grid-auto-rows: auto;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    width: 100%;
+    justify-content: center;
+    padding: 50px 50px;
+}
+
