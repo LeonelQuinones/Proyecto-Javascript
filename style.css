@@ -56,7 +56,7 @@ nav a {
 .icono-carrito i {
     font-size: 32px;
     color: white;
-    margin: 50%;
+    margin: 55%;
     align-self: center;
 }
 
@@ -78,7 +78,7 @@ nav a {
     border-radius: 2px;
 }
 
-/* Dispositivo movil */
+/* Navbar para Movile */
 
 @media (max-width: 768px) {
     .logo {
@@ -121,10 +121,18 @@ nav a {
         padding: 20px;
     }
 
+    .enlaces-menu li:hover {
+        background-color: #7070db;
+    }
+
     .icono-carrito {
         position: absolute;
         top: 30px;
         right: 50%;
+    }
+
+    .icono-carrito i {
+        margin: 50%;
     }
 }
 
@@ -153,13 +161,169 @@ nav a {
 
 /* Seccion Productos */
 
+.contenedor-productos {
+    display: grid;
+    gap: 2rem;
+    grid-auto-rows: auto;
+    grid-template-columns: 200px auto;
+    grid-template-areas: 
+        "filtros productos";
+}
+
+.filtros {
+    grid-area: filtros;
+
+    display: flex;
+    flex-direction: column;
+    padding-top: 60px;
+    padding-left: 30px;
+}
+
+.btn-filtros {
+    border: none;
+    padding: 10px 0;
+    background-color: #fff;
+}
+
+.btn-filtros:hover {
+    background-color: #2a2a58;
+    color: #fff;
+}
+
+.productos {
+    grid-area: productos;
+}
+
 .lista-productos {
     display: grid;
-    gap: 1rem;
+    gap: 2rem;
     grid-auto-rows: auto;
     grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
     width: 100%;
     justify-content: center;
     padding: 50px 50px;
+}
+
+.titulo-producto {
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.card-title {
+    text-transform: uppercase;
+}
+
+/* Footer */
+
+.footer {
+    padding: 40px 0;
+    background-color: #2a2a58;
+}
+
+.redes-sociales {
+    text-align: center;
+    padding-bottom: 40px;
+}
+
+.redes-sociales a {
+    font-size: 25px;
+    color: #fff;
+    border: 1px solid #fff;
+    width: 40px;
+    height: 40px;
+    line-height: 38px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 50%;
+    margin: 0 8px;
+    opacity: 0.7;
+}
+
+.redes-sociales a:hover {
+    opacity: 1;
+}
+
+.footer ul {
+    margin: 0;
+    padding: 0;
+    padding-bottom: 40px;
+    list-style: none;
+    font-size: 20px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.footer ul li a {
+    color: #fff;
+    text-decoration: none;
+    opacity: 0.7;
+}
+
+.footer ul li a:hover {
+    opacity: 1;
+}
+
+.footer ul li {
+    display: inline-block;
+    padding: 0 15px;
+}
+
+.footer p {
+    margin-top: 20px;
+    margin-bottom: 0;
+    text-align: center;
+    font-size: 17px;
+    color: #fff;
+    opacity: 0.5;
+}
+
+/* Formulario de Registro */
+
+.contenedor-formulario h2{
+    margin: 0 40px;
+    font-size: 40px;
+}
+
+.formulario {
+    width: 360px;
+    height: 450px;
+    background-color: rgb(23, 27, 49);
+    border-radius: 8px;
+    box-shadow: 0 0 10px -2px #000;
+    margin: 50px auto;
+    padding: 40px 40px;
+}
+
+.formulario h3 {
+    color: #fff;
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 10px 0;
+    font-size: 40px;
+    border-bottom: 1px solid #fff;
+}
+
+.formulario input {
+    color: #fff;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    outline: none;
+    border: 0;
+    transition: all 0.3;
+    border-bottom: 1px solid #fff; 
+    background: none;
+}
+
+.formulario button {
+    border: 0;
+    display: flex;
+    margin: 25px 0 0 auto;
+    color: #fff;
+    font-size: 15px;
+    border: 1px solid #4747d1;
+    background-color: #4747d1;
+    border-radius: 10px;
+    padding: 10px 30px;
 }
 
