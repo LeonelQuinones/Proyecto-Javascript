@@ -170,13 +170,38 @@ nav a {
         "filtros productos";
 }
 
+@media (max-width: 768px) {
+    .contenedor-productos {
+        display: grid;
+        gap: 2rem;
+        grid-auto-rows: auto;
+        grid-template-columns: auto;
+        grid-template-areas: 
+            "filtros"
+            "productos";
+    }
+}
+
 .filtros {
     grid-area: filtros;
 
     display: flex;
     flex-direction: column;
-    padding-top: 60px;
-    padding-left: 30px;
+    padding: 60px 15px 0 15px;
+}
+
+.filtros p {
+    font-size: 40px;
+    text-align: center;
+    text-transform: uppercase;
+    padding-bottom: 20px;
+}
+
+.btn-todos-productos {
+    border: none;
+    padding: 10px 0;
+    background-color: #2a2a58;
+    color: #fff;
 }
 
 .btn-filtros {
@@ -202,6 +227,10 @@ nav a {
     width: 100%;
     justify-content: center;
     padding: 50px 50px;
+}
+
+.producto {
+    margin: 0 auto;
 }
 
 .titulo-producto {
