@@ -419,6 +419,10 @@ nav a {
     grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
 }
 
+.img-form {
+    width: 100%;
+}
+
 /* Seccion Contacto */
 
 .contactos {
