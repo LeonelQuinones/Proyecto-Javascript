@@ -52,11 +52,30 @@ nav a {
     background-color: #7070db;
 }
 
+.icono-carrito {
+    border: 0;
+    height: 0;
+    width: 0;
+}
+
 .icono-carrito i {
     font-size: 32px;
     color: white;
     margin: 55%;
     align-self: center;
+    position: relative;
+    top: -15px;
+    right: 20px;
+}
+
+.contador {
+    position: relative;
+    right: 75px;
+    color: #fff;
+    border: 1px solid red;
+    padding: 0 7px;
+    border-radius: 50%;
+    background-color: red;
 }
 
 .ham {
@@ -126,12 +145,18 @@ nav a {
 
     .icono-carrito {
         position: absolute;
-        top: 30px;
+        top: 60px;
         right: 50%;
     }
 
     .icono-carrito i {
         margin: 50%;
+    }
+
+    .contador {
+        position: absolute;
+        right: 43%;
+        top: 50px;
     }
 }
 
@@ -476,4 +501,30 @@ nav a {
 
 .enlaces-contacto2 i:hover {
     color: #4747d1;
+}
+
+/* Carrito */
+
+.seccion-carrito {
+    width: 500px;
+    background-color: red;
+    border: 2px solid black;
+    position: absolute;
+    left: 62.9%;
+
+    visibility: hidden;
+}
+
+.active {
+    visibility: visible;
+}
+
+.btnAgregar {
+    background-color: #4747d1;
+    border-color: #7070db;
+}
+
+.btnAgregar:hover {
+    background-color: #4747d1;
+    border-color: #7070db!important;
 }

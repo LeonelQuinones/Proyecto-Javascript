@@ -19,22 +19,47 @@ async function obtenerProductos() {
     return (await fetch('productos.json')).json();
 }
 
+// Carrito de compras
+
+let btnCarrito = document.getElementById("btnCarrito");
+let seccionCarrito = document.getElementById("seccionCarrito");
+
+let carrito = [];
+
+btnCarrito.addEventListener('click', () => {
+    seccionCarrito.classList.toggle("active")
+})
+
 obtenerProductos().then(productos => {
     productos.forEach((producto) => {
         listaDeProductos.innerHTML += `
             <div class="card bg-secondary producto" style="max-width: 20rem;">
-                <img src="./img/${producto.img}" class="card-img-top" alt=${producto.nombre}>
+                <img src="./img/${producto.img}" class="card-img-top" alt=${producto.nombre}></img>
                 <div class="card-header titulo-producto">${producto.nombre}</div>
                 <div class="card-body">
                     <h4 class="card-title">${producto.marca}</h4>
-                    <p class="card-text">Precio: $${producto.precio}</p>
-                    <p class="card-text">Stock: ${producto.stock}</p>
-                    <button class="btn btn-primary" id="boton${producto.id}">Comprar</button>
+                    <p class="card-text">Precio: $<span>${producto.precio}</span></p>
+                    <p class="card-text">Stock: <span>${producto.stock}</span></p>
+                    <button class="btn btn-primary btnAgregar" data-id="${producto.id}">Comprar</button>
                 </div>
             </div>
         `
     })
+
+    let btnAgregar = document.querySelectorAll(".btnAgregar");
+    
+    btnAgregar.forEach((e) => {
+        e.addEventListener('click', (e) => {
+            let cardPadre = e.target.parentElement.parentElement;
+            
+        })
+    })
 })
+
+
+
+
+
 /*
 let productosEnOferta = obtenerProductos().then((productos) => productos.oferta == true)
 
