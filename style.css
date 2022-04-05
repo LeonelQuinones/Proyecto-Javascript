@@ -15,8 +15,7 @@ body {
 /* Navbar */
 
 .logo {
-    width: 130px;
-    height: 70px;
+    width: 160px;
 }
 
 nav {
@@ -309,9 +308,15 @@ nav a {
 /* Formulario de Registro */
 
 .contenedor-formulario h2{
-    margin: 0 40px;
-    font-size: 40px;
+    margin: 0 30px;
+    font-size: 22px;
+    color: #fff;
     text-align: center;
+    border-radius: 10px;
+    background-color: rgb(151, 32, 32);
+    box-sizing: border-box;
+    padding: 10px;
+    text-transform: uppercase;
 }
 
 .formulario {
@@ -320,7 +325,7 @@ nav a {
     background-color: rgb(23, 27, 49);
     border-radius: 8px;
     box-shadow: 0 0 10px -2px #000;
-    margin: 50px auto;
+    margin: 20px auto;
     padding: 40px 40px;
 }
 
@@ -331,6 +336,7 @@ nav a {
     padding: 10px 0;
     font-size: 40px;
     border-bottom: 1px solid #fff;
+    text-transform: uppercase;
 }
 
 .formulario input {
@@ -359,36 +365,50 @@ nav a {
 
 /* Seccion Nosotros */
 
+.titulo-nosotros {
+    font-size: 60px;
+    margin-top: 20px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
 .contenedor-nosotros-info {
     display: grid;
     gap: 2rem;
     grid-template-columns: repeat(2, auto);
-    grid-template-rows: repeat(2, auto);
 
-    grid-template-areas: "img1 texto1"
-                        "texto2 img2";
+    grid-template-areas: "img1 texto1";
+
+    margin: 60px 0;
 }
 
 .nosotros-img1 {
     grid-area: img1;
 }
-.nosotros-img2 {
-    grid-area: img2;
+
+.nosotros-img1 img {
+    width: 100%;
 }
+
 .nosotros-texto1 {
     grid-area: texto1;
+
+    font-size: 24px;
 }
-.nosotros-texto2 {
-    grid-area: texto2;
+
+.nosotros-texto1 p {
+    margin: 30px 50px;
 }
 
 @media screen and (max-width: 768px) {
     .contenedor-nosotros-info {
         display: grid;
         grid-template-areas: "img1"
-                            "texto1"
-                            "texto2"
-                            "img2";
+                            "texto1";
+    }
+
+    .img-display {
+        display: none;
     }
 }
 
