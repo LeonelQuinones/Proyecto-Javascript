@@ -19,8 +19,6 @@ async function obtenerProductos() {
     return (await fetch('productos.json')).json();
 }
 
-console.log(obtenerProductos())
-
 obtenerProductos().then(productos => {
     productos.forEach((producto) => {
         listaDeProductos.innerHTML += `
@@ -37,7 +35,11 @@ obtenerProductos().then(productos => {
         `
     })
 })
+/*
+let productosEnOferta = obtenerProductos().then((productos) => productos.oferta == true)
 
+console.log(productosEnOferta)
+*/
 
 // Registro de usuarios
 
@@ -82,7 +84,12 @@ formulario.addEventListener('submit', (e) => {
 })
 
 
+
 /*
+let productosOferta = obtenerProductos().then((productos) => productos.oferta ==)
+console.log(productosOferta)
+
+
 let mostrarProductosEnOferta = document.getElementById("mostrarProductosEnOferta");
 let ofertaProductos = document.getElementById("ofertaProductos");
 
@@ -130,16 +137,19 @@ async function productosOferta () {
     })
     console.log(productosEnOferta)
 }
+*/
 
 
 
+// let productosOferta = obtenerProductos().then((productos) => {
+//     productos.filter((producto => {
+//         producto.oferta == true
+//     }))
+// })
 
-let productosOferta = obtenerProductos().then((productos) => {
-        productos.filter((producto => {
-            producto.oferta == true
-        }))
-})
+// console.log(productosOferta)
 
+/*
 productosOferta.forEach((producto => {
     ofertaProductos.innerHTML += `
         <div class="card bg-secondary producto" style="max-width: 20rem;">

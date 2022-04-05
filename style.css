@@ -357,3 +357,99 @@ nav a {
     padding: 10px 30px;
 }
 
+/* Seccion Nosotros */
+
+.contenedor-nosotros-info {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(2, auto);
+
+    grid-template-areas: "img1 texto1"
+                        "texto2 img2";
+}
+
+.nosotros-img1 {
+    grid-area: img1;
+}
+.nosotros-img2 {
+    grid-area: img2;
+}
+.nosotros-texto1 {
+    grid-area: texto1;
+}
+.nosotros-texto2 {
+    grid-area: texto2;
+}
+
+@media screen and (max-width: 768px) {
+    .contenedor-nosotros-info {
+        display: grid;
+        grid-template-areas: "img1"
+                            "texto1"
+                            "texto2"
+                            "img2";
+    }
+}
+
+.contenedor-nosotros-form {
+    display: grid;
+    gap: 2rem;
+    grid-auto-rows: auto;
+    grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+}
+
+/* Seccion Contacto */
+
+.contactos {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+    width: 100%;
+    justify-content: center;
+    margin: 50px 0;
+}
+
+.enlaces-contacto {
+    text-align: center;
+}
+
+.enlaces-contacto i {
+    font-size: 50px;
+    color: #2a2a58;
+    padding-bottom: 15px;
+}
+
+.enlaces-contacto i:hover {
+    color: #4747d1;
+}
+
+.enlaces-contacto h2 {
+    margin: 0;
+}
+
+.enlaces-contacto p {
+    padding-top: 10px;
+}
+
+.contactos-2 {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(40%, 1fr));
+    
+}
+
+.enlaces-contacto2 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.enlaces-contacto2 i {
+    font-size: 50px;
+    color: #2a2a58;
+    padding-bottom: 15px;
+}
+
+.enlaces-contacto2 i:hover {
+    color: #4747d1;
+}
