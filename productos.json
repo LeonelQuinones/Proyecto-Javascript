@@ -5,6 +5,7 @@
         "marca": "Asus",
         "precio": 10000,
         "stock": 40,
+        "articulo": "Auriculares",
         "oferta": false,
         "img": "auriculares-asus.webp"
     },
@@ -14,6 +15,7 @@
         "marca": "HyperX",
         "precio": 5700,
         "stock": 75,
+        "articulo": "Auriculares",
         "oferta": true,
         "img": "auriculares-hyperx.webp"
     },
@@ -23,7 +25,8 @@
         "marca": "Razer",
         "precio": 4200,
         "stock": 210,
-        "oferta": true,
+        "articulo": "Auriculares",
+        "oferta": false,
         "img": "auriculares-razer.webp"
     },
     {
@@ -32,6 +35,7 @@
         "marca": "Razer",
         "precio": 3800,
         "stock": 55,
+        "articulo": "Mouse",
         "oferta": false,
         "img": "mouse-razer.webp"
     },
@@ -41,6 +45,7 @@
         "marca": "Logitech",
         "precio": 5500,
         "stock": 90,
+        "articulo": "Mouse",
         "oferta": false,
         "img": "mouse-logitech.webp"
     },
@@ -50,6 +55,7 @@
         "marca": "HyperX",
         "precio": 6100,
         "stock": 145,
+        "articulo": "Mouse",
         "oferta": true,
         "img": "mouse-hyperx.webp"
     },
@@ -59,6 +65,7 @@
         "marca": "Asus",
         "precio": 8200,
         "stock": 90,
+        "articulo": "Teclado",
         "oferta": true,
         "img": "teclado-asus.webp"
     },
@@ -68,6 +75,7 @@
         "marca": "Redragon",
         "precio": 11000,
         "stock": 30,
+        "articulo": "Teclado",
         "oferta": false,
         "img": "teclado-redragon.webp"
     },
@@ -77,7 +85,8 @@
         "marca": "HyperX",
         "precio": 4000,
         "stock": 40,
-        "oferta": true,
+        "articulo": "Teclado",
+        "oferta": false,
         "img": "teclado-hyperx.webp"
     },
     {
@@ -86,6 +95,7 @@
         "marca": "LG",
         "precio": 80000,
         "stock": 35,
+        "articulo": "Monitor",
         "oferta": false,
         "img": "monitor-lg-plano.webp"
     },
@@ -95,6 +105,7 @@
         "marca": "LG",
         "precio": 42000,
         "stock": 15,
+        "articulo": "Monitor",
         "oferta": true,
         "img": "monitor-lg-curvo.webp"
     },
@@ -104,7 +115,8 @@
         "marca": "Samsung",
         "precio": 35000,
         "stock": 60,
-        "oferta": true,
+        "articulo": "Monitor",
+        "oferta": false,
         "img": "monitor-samsung.webp"
     }
 ]

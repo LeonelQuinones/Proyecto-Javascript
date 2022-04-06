@@ -1,8 +1,10 @@
+// Boton Hamburguesa del Navbar
+
 const ham = document.querySelector(".ham");
 const enlaces = document.querySelector(".enlaces-menu");
 const barras = document.querySelectorAll(".ham span");
 
-// Evento para hamburguesa de navbar Movile
+// Evento para Boton Hamburguesa de Navbar Movile
 
 ham.addEventListener('click', () => {
     enlaces.classList.toggle('activado')
@@ -12,8 +14,6 @@ ham.addEventListener('click', () => {
 })
 
 // Funcion asincrona para traer los elementos del JSON y mostrar los productos
-
-let listaDeProductos = document.getElementById("listaDeProductos");
 
 async function obtenerProductos() {
     return (await fetch('productos.json')).json();
@@ -30,7 +30,19 @@ btnCarrito.addEventListener('click', () => {
     seccionCarrito.classList.toggle("active")
 })
 
+//Lista de Productos y filtros
+
+let listaDeProductos = document.getElementById("listaDeProductos");
+// let listaDeProductos = document.getElementById("listaDeProductos");
+// let listaDeProductos = document.getElementById("listaDeProductos");
+// let listaDeProductos = document.getElementById("listaDeProductos");
+// let listaDeProductos = document.getElementById("listaDeProductos");
+
+let todosLosProductos = document.querySelector(".todosLosProductos")
 let teclados = document.querySelector(".teclados")
+let mouse = document.querySelector(".mouse")
+let auriculares = document.querySelector(".auriculares")
+let monitores = document.querySelector(".monitores")
 
 obtenerProductos().then(productos => {
     productos.forEach((producto) => {
@@ -49,7 +61,21 @@ obtenerProductos().then(productos => {
     })
 
     teclados.addEventListener('click', () => {
-
+        let arrayFiltrado = productos.filter(producto => producto.articulo === "Teclado")
+        arrayFiltrado.forEach((elemento) => {
+            listaDeProductos.innerHTML = `
+                <div class="card bg-secondary producto" style="max-width: 20rem;">
+                    <img src="./img/${elemento.img}" class="card-img-top" alt=${elemento.nombre}></img>
+                    <div class="nombre card-header titulo-producto" id="nombre">${elemento.nombre}</div>
+                    <div class="card-body">
+                        <h4 class="card-title">${elemento.marca}</h4>
+                        <p class="precio card-text" id="precio">Precio: $<span id="span">${elemento.precio}</span></p>
+                        <p class="card-text">Stock: <span>${elemento.stock}</span></p>
+                        <button class="btn btn-primary btnAgregar" data-id="${elemento.id}">Comprar</button>
+                    </div>
+                </div>
+        `
+        })
     })
 
     let btnAgregar = document.querySelectorAll(".btnAgregar");
@@ -61,6 +87,10 @@ obtenerProductos().then(productos => {
         })
     })
 })
+
+
+
+
 
 
 const sumarCarrito = (cardProducto) => {
@@ -139,14 +169,6 @@ const botonesCarrito = (e) => {
 
 botonesCarrito()
 
-
-
-/*
-let productosEnOferta = obtenerProductos().then((productos) => productos.oferta == true)
-
-console.log(productosEnOferta)
-*/
-
 // Registro de usuarios
 
 class User {
@@ -188,86 +210,3 @@ formulario.addEventListener('submit', (e) => {
         console.log("Este usuario ya fue registrado.")
     }
 })
-
-
-
-/*
-let productosOferta = obtenerProductos().then((productos) => productos.oferta ==)
-console.log(productosOferta)
-
-
-let mostrarProductosEnOferta = document.getElementById("mostrarProductosEnOferta");
-let ofertaProductos = document.getElementById("ofertaProductos");
-
-mostrarProductosEnOferta.addEventListener('click', async () => {
-    let productosEnOferta = [];
-
-    try {
-        productosEnOferta = await obtenerProductos((productos) => {
-            productos.filter(
-                (producto) => producto.oferta === true)
-        })
-    } catch (e) {
-        console.log("Error")
-        console.log(e)
-    }
-
-    console.log(productosEnOferta);
-});
-
-async function productosOferta () {
-    let productosEnOferta = await obtenerProductos((productos) => {
-        productos.filter((producto) => {
-            if (producto.oferta == true) {
-                return true
-            } else {
-                return false
-            }
-        })
-    });
-    console.log(productosEnOferta);
-}
-
-productosOferta()
-
-
-async function productosOferta () {
-    let productosEnOferta = await obtenerProductos().then(productos => {
-        productos.filter((producto) => {
-            if (producto.oferta === true) {
-                return true
-            } else {
-                return false
-            }
-        })
-    })
-    console.log(productosEnOferta)
-}
-*/
-
-
-
-// let productosOferta = obtenerProductos().then((productos) => {
-//     productos.filter((producto => {
-//         producto.oferta == true
-//     }))
-// })
-
-// console.log(productosOferta)
-
-/*
-productosOferta.forEach((producto => {
-    ofertaProductos.innerHTML += `
-        <div class="card bg-secondary producto" style="max-width: 20rem;">
-            <img src="./img/${producto.img}" class="card-img-top" alt=${producto.nombre}>
-            <div class="card-header titulo-producto">${producto.nombre}</div>
-            <div class="card-body">
-                <h4 class="card-title">${producto.marca}</h4>
-                <p class="card-text">Precio: $${producto.precio}</p>
-                <p class="card-text">Stock: ${producto.stock}</p>
-                <button class="btn btn-primary" id="boton${producto.id}">Comprar</button>
-            </div>
-        </div>
-    `
-}))
-*/
