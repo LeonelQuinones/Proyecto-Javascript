@@ -33,21 +33,17 @@ btnCarrito.addEventListener('click', () => {
 //Lista de Productos y filtros
 
 let listaDeProductos = document.getElementById("listaDeProductos");
-// let listaDeProductos = document.getElementById("listaDeProductos");
-// let listaDeProductos = document.getElementById("listaDeProductos");
-// let listaDeProductos = document.getElementById("listaDeProductos");
-// let listaDeProductos = document.getElementById("listaDeProductos");
 
-let todosLosProductos = document.querySelector(".todosLosProductos")
-let teclados = document.querySelector(".teclados")
-let mouse = document.querySelector(".mouse")
-let auriculares = document.querySelector(".auriculares")
-let monitores = document.querySelector(".monitores")
+let todosLosProductos = document.querySelector(".todosLosProductos");
+let teclados = document.querySelector(".teclados");
+let mouse = document.querySelector(".mouse");
+let auriculares = document.querySelector(".auriculares");
+let monitores = document.querySelector(".monitores");
 
 obtenerProductos().then(productos => {
     productos.forEach((producto) => {
         listaDeProductos.innerHTML += `
-            <div class="card bg-secondary producto" style="max-width: 20rem;">
+            <div class="card bg-secondary producto">
                 <img src="./img/${producto.img}" class="card-img-top" alt=${producto.nombre}></img>
                 <div class="nombre card-header titulo-producto" id="nombre">${producto.nombre}</div>
                 <div class="card-body">
@@ -60,11 +56,16 @@ obtenerProductos().then(productos => {
         `
     })
 
-    teclados.addEventListener('click', () => {
-        let arrayFiltrado = productos.filter(producto => producto.articulo === "Teclado")
-        arrayFiltrado.forEach((elemento) => {
-            listaDeProductos.innerHTML = `
-                <div class="card bg-secondary producto" style="max-width: 20rem;">
+    // Filtros
+
+    todosLosProductos.addEventListener('click', () => {
+        obtenerProductos().then(productos => {
+            let arrayTodos = productos;
+            listaDeProductos.innerHTML = ""
+            arrayTodos.forEach((elemento) => {
+                const cardTodos = document.createElement("div")
+                cardTodos.classList.add("card", "bg-secondary", "producto")
+                cardTodos.innerHTML = `
                     <img src="./img/${elemento.img}" class="card-img-top" alt=${elemento.nombre}></img>
                     <div class="nombre card-header titulo-producto" id="nombre">${elemento.nombre}</div>
                     <div class="card-body">
@@ -73,8 +74,97 @@ obtenerProductos().then(productos => {
                         <p class="card-text">Stock: <span>${elemento.stock}</span></p>
                         <button class="btn btn-primary btnAgregar" data-id="${elemento.id}">Comprar</button>
                     </div>
-                </div>
-        `
+                `
+                listaDeProductos.appendChild(cardTodos)
+            })
+        })
+    })
+
+    teclados.addEventListener('click', () => {
+        obtenerProductos().then(productos => {
+            let arrayTeclados = productos.filter(producto => producto.articulo === "Teclado");
+            listaDeProductos.innerHTML = ""
+            arrayTeclados.forEach((elemento) => {
+                const cardTeclado = document.createElement("div")
+                cardTeclado.classList.add("card", "bg-secondary", "producto")
+                cardTeclado.innerHTML = `
+                    <img src="./img/${elemento.img}" class="card-img-top" alt=${elemento.nombre}></img>
+                    <div class="nombre card-header titulo-producto" id="nombre">${elemento.nombre}</div>
+                    <div class="card-body">
+                        <h4 class="card-title">${elemento.marca}</h4>
+                        <p class="precio card-text" id="precio">Precio: $<span id="span">${elemento.precio}</span></p>
+                        <p class="card-text">Stock: <span>${elemento.stock}</span></p>
+                        <button class="btn btn-primary btnAgregar" data-id="${elemento.id}">Comprar</button>
+                    </div>
+                `
+                listaDeProductos.appendChild(cardTeclado)
+            })
+        })
+    })
+
+    mouse.addEventListener('click', () => {
+        obtenerProductos().then(productos => {
+            let arrayMouse = productos.filter(producto => producto.articulo === "Mouse");
+            listaDeProductos.innerHTML = ""
+            arrayMouse.forEach((elemento) => {
+                const cardMouse = document.createElement("div")
+                cardMouse.classList.add("card", "bg-secondary", "producto")
+                cardMouse.innerHTML = `
+                    <img src="./img/${elemento.img}" class="card-img-top" alt=${elemento.nombre}></img>
+                    <div class="nombre card-header titulo-producto" id="nombre">${elemento.nombre}</div>
+                    <div class="card-body">
+                        <h4 class="card-title">${elemento.marca}</h4>
+                        <p class="precio card-text" id="precio">Precio: $<span id="span">${elemento.precio}</span></p>
+                        <p class="card-text">Stock: <span>${elemento.stock}</span></p>
+                        <button class="btn btn-primary btnAgregar" data-id="${elemento.id}">Comprar</button>
+                    </div>
+                `
+                listaDeProductos.appendChild(cardMouse)
+            })
+        })
+    })
+
+    auriculares.addEventListener('click', () => {
+        obtenerProductos().then(productos => {
+            let arrayAuriculares = productos.filter(producto => producto.articulo === "Auriculares");
+            listaDeProductos.innerHTML = ""
+            arrayAuriculares.forEach((elemento) => {
+                const cardAuriculares = document.createElement("div")
+                cardAuriculares.classList.add("card", "bg-secondary", "producto")
+                cardAuriculares.innerHTML = `
+                    <img src="./img/${elemento.img}" class="card-img-top" alt=${elemento.nombre}></img>
+                    <div class="nombre card-header titulo-producto" id="nombre">${elemento.nombre}</div>
+                    <div class="card-body">
+                        <h4 class="card-title">${elemento.marca}</h4>
+                        <p class="precio card-text" id="precio">Precio: $<span id="span">${elemento.precio}</span></p>
+                        <p class="card-text">Stock: <span>${elemento.stock}</span></p>
+                        <button class="btn btn-primary btnAgregar" data-id="${elemento.id}">Comprar</button>
+                    </div>
+                `
+                listaDeProductos.appendChild(cardAuriculares)
+            })
+        })
+    })
+
+    monitores.addEventListener('click', () => {
+        obtenerProductos().then(productos => {
+            let arrayMonitores = productos.filter(producto => producto.articulo === "Monitor");
+            listaDeProductos.innerHTML = ""
+            arrayMonitores.forEach((elemento) => {
+                const cardMonitores = document.createElement("div")
+                cardMonitores.classList.add("card", "bg-secondary", "producto")
+                cardMonitores.innerHTML = `
+                    <img src="./img/${elemento.img}" class="card-img-top" alt=${elemento.nombre}></img>
+                    <div class="nombre card-header titulo-producto" id="nombre">${elemento.nombre}</div>
+                    <div class="card-body">
+                        <h4 class="card-title">${elemento.marca}</h4>
+                        <p class="precio card-text" id="precio">Precio: $<span id="span">${elemento.precio}</span></p>
+                        <p class="card-text">Stock: <span>${elemento.stock}</span></p>
+                        <button class="btn btn-primary btnAgregar" data-id="${elemento.id}">Comprar</button>
+                    </div>
+                `
+                listaDeProductos.appendChild(cardMonitores)
+            })
         })
     })
 
@@ -88,10 +178,30 @@ obtenerProductos().then(productos => {
     })
 })
 
+// Productos en Oferta
 
+let botonOfertas = document.getElementById("botonOfertas");
+let divOfertas = document.getElementById("divOfertas");
 
-
-
+botonOfertas.addEventListener('click', () => {
+    obtenerProductos().then(productos => {
+        let arrayOfertas = productos.filter(producto => producto.oferta === true);
+        arrayOfertas.forEach((elemento) => {
+            divOfertas.innerHTML += `
+                <div class="card bg-secondary producto">
+                    <img src="./img/${elemento.img}" class="card-img-top" alt=${elemento.nombre}></img>
+                    <div class="nombre card-header titulo-producto" id="nombre">${elemento.nombre}</div>
+                    <div class="card-body">
+                        <h4 class="card-title">${elemento.marca}</h4>
+                        <p class="precio card-text" id="precio">Precio: $<span id="span">${elemento.precio}</span></p>
+                        <p class="card-text">Stock: <span>${elemento.stock}</span></p>
+                        <button class="btn btn-primary btnAgregar" data-id="${elemento.id}">Comprar</button>
+                    </div>
+                </div>
+            `
+        })
+    })
+})
 
 const sumarCarrito = (cardProducto) => {
     let producto = {
@@ -100,9 +210,9 @@ const sumarCarrito = (cardProducto) => {
         cantidad: 1,
         img: cardProducto.querySelector("img").src,
         id: Number(cardProducto.querySelector("button").getAttribute("data-id"))
-    }
+    };
 
-    let productoEncontrado = carrito.find((elemento) => elemento.id === producto.id)
+    let productoEncontrado = carrito.find((elemento) => elemento.id === producto.id);
 
     if (productoEncontrado) {
         productoEncontrado.cantidad++
@@ -131,43 +241,7 @@ const mostrarCarrito = () => {
             </div>
         `
     })
-/*
-    let btnRestar = document.querySelector(".btnRestar");
-    let btnBorrar = document.querySelector(".btnBorrar");
-
-    btnRestar.addEventListener('click', (e) => {
-        restarProducto(e.target.getAttribute("data-id"))
-    })
-
-    btnBorrar.addEventListener('click', (e) => {
-        borrarProducto(e.target.getAttribute("data-id"))
-    })*/
 }
-/*
-const restarProducto = (productoRestar) => {
-    let productoEncontrado = carrito.find(elemento => elemento.id === Number(productoRestar))
-    if (productoEncontrado) {
-        productoEncontrado.cantidad--
-        if (productoEncontrado.cantidad === 0) {
-            productoEncontrado.cantidad = 1
-        }
-    }
-}
-*/
-
-const botonesCarrito = (e) => {
-    e.preventDefault()
-    carrito.addEventListener("click", (e) => {
-        if (e.target.classList.contains("btnRestar")) {
-            console.log("restar");
-        }
-        if (e.target.classList.contains("btnBorrar")) {
-            console.log("borrar");
-        }
-    })
-}
-
-botonesCarrito()
 
 // Registro de usuarios
 
@@ -183,7 +257,7 @@ class User {
     }
 }
 
-let arrayUsuarios = []
+let arrayUsuarios = [];
 
 if (localStorage.getItem('usuarios')) {
     arrayUsuarios = JSON.parse(localStorage.getItem('usuarios'))
@@ -191,22 +265,32 @@ if (localStorage.getItem('usuarios')) {
     localStorage.setItem('usuarios', JSON.stringify(arrayUsuarios))
 }
 
-let formulario = document.getElementById("formulario")
+let formulario = document.getElementById("formulario");
 
 formulario.addEventListener('submit', (e) => {
     e.preventDefault()
 
-    let user = document.getElementById("idUser").value
-    let email = document.getElementById("idEmail").value
-    let password = document.getElementById("idPassword").value
+    let user = document.getElementById("idUser").value;
+    let email = document.getElementById("idEmail").value;
+    let password = document.getElementById("idPassword").value;
 
     if (!arrayUsuarios.some(usuarioEnArray => usuarioEnArray.email == email || usuarioEnArray.user == user)) {
         const usuarioLogueado = new User(user, email, password)
         arrayUsuarios.push(usuarioLogueado)
         usuarioLogueado.loguearse()
         localStorage.setItem('usuarios', JSON.stringify(arrayUsuarios))
+        swal({
+            title: "Usuario logueado correctamente",
+            icon: "success",
+            timer: 3000,
+        })
         formulario.reset()
     } else {
-        console.log("Este usuario ya fue registrado.")
+        swal({
+            title: "Error! Usuario ya registrado",
+            icon: "error",
+            timer: 3000,
+        })
     }
 })
+
