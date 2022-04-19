@@ -697,6 +697,12 @@ nav a {
     visibility: hidden;
 }
 
+@media screen and (max-width: 768px) {
+    .seccion-carrito {
+        top: 124px;
+    }
+}
+
 .active {
     visibility: visible;
 }
