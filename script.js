@@ -173,17 +173,83 @@ obtenerProductos().then(productos => {
     btnAgregar.forEach((e) => {
         e.addEventListener('click', (e) => {
             let cardProducto = e.target.parentElement.parentElement;
+            console.log(cardProducto)
             sumarCarrito(cardProducto);
         })
     })
 })
 
+let btnAgregar = document.querySelectorAll(".btnAgregar");
+    
+btnAgregar.forEach((e) => {
+    e.addEventListener('click', (e) => {
+        let cardProducto = e.target.parentElement.parentElement;
+
+        sumarCarrito(cardProducto);
+    })
+})
+
+const sumarCarrito = (cardProducto) => {
+    let producto = {
+        nombre: cardProducto.querySelector(".nombre").textContent,
+        precio: Number(cardProducto.querySelector(".precio span").textContent),
+        cantidad: 1,
+        id: Number(cardProducto.querySelector("button").getAttribute("data-id"))
+    };
+
+    let productoEncontrado = carrito.find((elemento) => elemento.id === producto.id);
+
+    if (productoEncontrado) {
+        productoEncontrado.cantidad++
+    } else {
+        carrito.push(producto)
+    }
+
+    mostrarCarrito()
+};
+
+const mostrarCarrito = () => {
+    seccionCarrito.innerHTML = ""
+    carrito.forEach(producto => {
+        let {nombre, precio, cantidad, id} = producto;
+        seccionCarrito.innerHTML += `
+            <div class="card bg-secondary producto">
+                <img src="./img/img-carrito.png" class="card-img-top" alt=${nombre}></img>
+                <div class="nombre card-header titulo-producto" id="nombre">${nombre}</div>
+                <div class="card-body">
+                    <p class="card-text">Cantidad: ${cantidad}</p>
+                    <p class="precio card-text" id="precio">Precio: $${precio}</p>
+                    <p class="card-text">Subtotal: $${precio * cantidad}</p>
+                    <button class="btn btn-primary btnRestar" data-id="${id}">-</button>
+                    <button class="btn btn-primary btnBorrar" data-id="${id}">Borrar</button>
+                </div>
+            </div>
+        `
+    })
+}
+
+
 // Productos en Oferta
+
+moment.locale('es', {
+    months: 'Enero_Febrero_Marzo_Abril_Mayo_Junio_Julio_Agosto_Septiembre_Octubre_Noviembre_Diciembre'.split('_'),
+    monthsShort: 'Enero._Feb._Mar_Abr._May_Jun_Jul._Ago_Sept._Oct._Nov._Dec.'.split('_'),
+    weekdays: 'Domingo_Lunes_Martes_Miercoles_Jueves_Viernes_Sabado'.split('_'),
+    weekdaysShort: 'Dom._Lun._Mar._Mier._Jue._Vier._Sab.'.split('_'),
+    weekdaysMin: 'Do_Lu_Ma_Mi_Ju_Vi_Sa'.split('_')
+});
+
+let hoyFecha = moment().format('dddd Do MMMM YYYY')
 
 let botonOfertas = document.getElementById("botonOfertas");
 let divOfertas = document.getElementById("divOfertas");
+let fechaMoment = document.getElementById("fechaMoment")
 
 botonOfertas.addEventListener('click', () => {
+    fechaMoment.innerHTML += `
+        <h2 class="fecha">Estas son las ofertas disponibles del día ${hoyFecha}</h2>
+    `
+    
     obtenerProductos().then(productos => {
         let arrayOfertas = productos.filter(producto => producto.oferta === true);
         arrayOfertas.forEach((elemento) => {
@@ -203,45 +269,6 @@ botonOfertas.addEventListener('click', () => {
     })
 })
 
-const sumarCarrito = (cardProducto) => {
-    let producto = {
-        nombre: cardProducto.querySelector(".nombre").textContent,
-        precio: Number(cardProducto.querySelector(".precio span").textContent),
-        cantidad: 1,
-        img: cardProducto.querySelector("img").src,
-        id: Number(cardProducto.querySelector("button").getAttribute("data-id"))
-    };
-
-    let productoEncontrado = carrito.find((elemento) => elemento.id === producto.id);
-
-    if (productoEncontrado) {
-        productoEncontrado.cantidad++
-    } else {
-        carrito.push(producto)
-    }
-
-    mostrarCarrito()
-};
-
-const mostrarCarrito = () => {
-    seccionCarrito.innerHTML = ""
-    carrito.forEach(producto => {
-        let {imagen, nombre, precio, cantidad, id} = producto;
-        seccionCarrito.innerHTML += `
-            <div class="card bg-secondary producto" style="max-width: 10rem;">
-                <img src="${imagen}" class="card-img-top" alt=${nombre}></img>
-                <div class="nombre card-header titulo-producto" id="nombre">${nombre}</div>
-                <div class="card-body">
-                    <p class="card-text">Cantidad: ${cantidad}</p>
-                    <p class="precio card-text" id="precio">Precio: $${precio}</p>
-                    <p class="card-text">Subtotal: $${precio * cantidad}</p>
-                    <button class="btn btn-primary btnRestar" data-id="${id}">-</button>
-                    <button class="btn btn-primary btnBorrar" data-id="${id}">Borrar</button>
-                </div>
-            </div>
-        `
-    })
-}
 
 // Registro de usuarios
 
