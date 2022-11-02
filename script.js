@@ -169,25 +169,20 @@ obtenerProductos().then(productos => {
     })
 
     let btnAgregar = document.querySelectorAll(".btnAgregar");
-    
-    btnAgregar.forEach((e) => {
-        e.addEventListener('click', (e) => {
-            let cardProducto = e.target.parentElement.parentElement;
-            console.log(cardProducto)
-            sumarCarrito(cardProducto);
+
+    let funcionCarrito = () => {
+        btnAgregar.forEach((e) => {
+            e.addEventListener('click', (e) => {
+                let cardProducto = e.target.parentElement.parentElement;
+                sumarCarrito(cardProducto);
+            })
         })
-    })
+    }
+
+    funcionCarrito()
 })
 
-let btnAgregar = document.querySelectorAll(".btnAgregar");
-    
-btnAgregar.forEach((e) => {
-    e.addEventListener('click', (e) => {
-        let cardProducto = e.target.parentElement.parentElement;
 
-        sumarCarrito(cardProducto);
-    })
-})
 
 const sumarCarrito = (cardProducto) => {
     let producto = {
